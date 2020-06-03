@@ -1,0 +1,124 @@
+#page-create-point {
+
+    width: 90%;
+    max-width: 1100px;
+    /*Alinha da caixa (pelo lado de fora da caixa)*/
+    margin: 0 auto;
+}
+
+#page-create-point header {
+    margin-top: 48px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#page-create-point header a {
+    font-weight: 700;
+    color: #2d1e4b;
+
+    display: flex;
+    align-items: center;
+}
+#page-create-point header a span {
+    margin-right: 16px;
+    background-image: url(../icones/arrow-left.svg);
+
+    display: flex; /*Quando adicionarmos uma imagem devemos usar o display flex
+    devemos colocar altura e largura*/
+
+    height: 24px;
+    width: 20px;
+}
+
+#page-create-point form {
+    background-color: white;
+
+    margin: 80px auto;
+    padding: 64px; /*Prenchmento da caixa*/
+
+    border-radius:  8px;
+
+    max-width: 760px;
+
+    box-sizing: border-box;
+}
+form h1 {
+    font-size: 36px;
+}
+
+form fieldset {
+    margin-top: 64px;
+
+    border: 0;
+}
+
+form legend {
+    margin-bottom: 40px;
+}
+
+form h2 {
+    font-size: 24px;
+}
+
+form .field {
+    flex: 1;
+    display: flex; /*Colocar um elememto ao lado do outro*/
+    flex-direction: column; /*Colocar os elementos em colunas*/
+
+    margin-bottom: 24px; /*Para separar os items*/
+}
+
+form .field-group {
+    display: flex;
+}
+form  input, form select {
+    background-color: #f0f0f5;
+    border: 0;
+    padding: 16px 24px;
+    font-size: 16px;
+
+    border-radius: 8px;
+
+    outline: none; /*Quando eu clicar dentro da ciaxa de texto, não vai ficar com bordas*/
+}
+form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+form label {
+    font-size: 14px;
+    margin-bottom: 10px; /*Para separar o nome do input*/
+    font-size: 14px Arial;
+}
+
+form .field-group .field +.field /*Para criar um espaço entre os fields*/ {
+    margin-left: 24px;
+}
+
+form button {
+    width: 260px;
+    height: 56px;
+
+    background-color: #34CB79;
+    border-radius: 8px;
+
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+
+    border: 0; /*Tirar a borda em volta do botão*/
+
+    margin-top: 40px;
+
+    transition: 400ms;
+
+}
+form button:hover {
+    background-color: #2fb86e;
+}
+
+
+

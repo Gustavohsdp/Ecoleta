@@ -1,0 +1,52 @@
+:root {
+    --primary-color: #34CB79;
+    --title-color: #2d1e4b; /*Atalho para alterar a cor nos campos, isso é uma var*/
+}
+* /*Para retirar espações padrões do navegador*/ {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+
+    }
+
+    body {
+        background: #f0f0f5;
+        -webkit-font-smoothing: antialiased;
+    }
+    a {
+        text-decoration: none; /*Para remover o que está escrito debaixo da fonte*/
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Ubuntu', sans-serif;
+        color: var(--title-color);
+    }
+/*Box model
+
+Modelo de caixa
+Toda caixa tem
+largura,altura,espaçamentos, preenchimentos, bordas, cor,
+fundo maneira que é vista pelo HTML (Display)
+alinhamentos, posicionamentos
+
+Display inline só vai ocupar o tamanho da caixa
+Display block vai ocupar a tela inteira
+
+margin-left: auto; /*esquerda
+margin-right: auto; direita
+margin:0 (Equivale a (top) e bottom) auto( equivale a left e rigth) 0 (equivale a bottom);  vai pegar nos 4 cantos
+*/
+
+
+
+
+
+
+
+
+
+
+
+
