@@ -1,7 +1,6 @@
 
-
 function populatesUFs() {
-    const ufSelect = document.querySelector("select[name=uf")
+    const ufSelect = document.querySelector("select[name=uf");
 
 
 
@@ -9,39 +8,43 @@ function populatesUFs() {
     .then( (res) => {return res.json() })
     .then( states => {
         for( const state of states) {
-            ufSelect.innerHTML +=`<option value="${state.id}">${state.nome}</option>`
+            ufSelect.innerHTML +=`<option value="${state.id}">${state.nome}</option>`;
         }
     })
 }
 populatesUFs()
 
-function getCity (event) {
-    const citySelect = document.querySelector("[name=city]")
-    const ufInput = document.querySelector("[name=uf]")
+function getCities (event) {
+    const citySelect = document.querySelector("[name=city]");
+    const stateInput = document.querySelector("[name=state]");
 
     const ufValue = event.target.value
 
-    const indexOfSelecteduf = event.target.selectedIndex
-    ufInput.value = event.target.options[indexOfSelecteduf].text
+    const indexOfSelectedState = event.target.selectedIndex
+    stateInput.value = event.target.options[indexOfSelectedState].text
 
     //console.log(event.target.value)//
 
-    const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios`
+    const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios`;
+
+    citySelect.innerHTML = "<option value>Selecione a Cidade</option>"
+    citySelect.disabled = true
 
     fetch(url)
-    .then( (res) => {return res.json() })
-    .then( City => {
-        for( const city of City) {
-            citySelect.innerHTML +=`<option value="${city.id}">${city.nome}</option>`
+    .then( res => res.json() )
+    .then( cities => {
+
+        for( const city of cities ) {
+            citySelect.innerHTML +=`<option value="${city.nome}">${city.nome}</option>`
         }
 
         citySelect.disabled = false
     })
 
 }
-
-document.querySelector("select[name=uf]");
-document.addEventListener("change",getCity)
+document
+    .querySelector("select[name=uf]")
+    .addEventListener("change", getCities)
 
 
 
