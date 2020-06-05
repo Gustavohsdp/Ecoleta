@@ -119,6 +119,42 @@ form button {
 form button:hover {
     background-color: #2fb86e;
 }
+.items-grid {
+    display: grid; /*Você consegue criar linhas e colunas*/
+    grid-template-columns: 1fr 1fr 1fr; /*Desta forma criei 3 colunas com frações, posso também usar px*/
+    gap: 16px; /*Propriedade para colocar espaçamento entre os items quando estou utilizando o grid*/
+}
+.items-grid li {
+    background-color: #f5f5f5;
+    list-style: none; /*Para remover marcações da li*/
 
+    border: 2px solid #f5f5f5 ;
+    border-radius: 8px;
 
+    height: 180px;
 
+    padding: 32px/*Topo*/ 24px/*Laterais*/ 16px /*Baixo*/;
+
+    display: flex;/*Columar um item ao lado do outro*/
+    flex-direction: column;/*Direção do items em coluna*/
+    align-items: center; /*Alinhar os items ao centro*/
+    justify-content: space-between;
+
+    text-align: center;/*Alinhar o texto ao centro*/
+
+    cursor: pointer; /*Quando passar o mouse fazer o dedo de clicavel*/
+}
+.items-grid li span {
+    margin-top: 12px;
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--title-color);
+}
+
+.items-grid li.selected {
+    background: #e1faec;
+    border: 5px solid #34cb79;
+}
