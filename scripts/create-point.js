@@ -3,22 +3,26 @@ function populatesUFs() {
     const ufSelect = document.querySelector("select[name=uf");
 
 
-
+    //then = resposta de sucesso API
     fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
-    .then( (res) => {return res.json() })
+    .then( (res) => {return res.json() }) // Quando uso o fetch tenho que transforma em json
+
+    //resposta da API
     .then( states => {
         for( const state of states) {
             ufSelect.innerHTML +=`<option value="${state.id}">${state.nome}</option>`;
         }
     })
 }
-populatesUFs()
+populatesUFs() //Executando a função
 
+//iremos receber "event" quando ocorrer alteração
 function getCities (event) {
     const citySelect = document.querySelector("[name=city]");
     const stateInput = document.querySelector("[name=state]");
 
-    const ufValue = event.target.value
+    const ufValue = event.target.value  //target é o elemento que eu selecionei
+                                        //Value é o que foi selecionado
 
     const indexOfSelectedState = event.target.selectedIndex
     stateInput.value = event.target.options[indexOfSelectedState].text
@@ -45,6 +49,8 @@ function getCities (event) {
 document
     .querySelector("select[name=uf]")
     .addEventListener("change", getCities)
+
+    //Evento change vai ser executado quando houver alteração
 
 
 //Itens de coleta//
@@ -84,8 +90,10 @@ function handleSelectedItem (event) {
     } else {
         //Se não estiver selecionado
         //adicionar a seleção
-        selectedItems.push(itemId) //adicionar o item no array
+        selectedItems.push(itemId) //adicionar o item
+         array
     }
+
     //atualizar o campo escondido com os itens selecionados
     collectedItems.value = selectedItems
 }
