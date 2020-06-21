@@ -9,12 +9,13 @@
 
 {% block style %}
     <link rel="stylesheet" href="/styles/create-point.css">
+    <link rel="stylesheet" href="/styles/modal.css">
 {% endblock style %}
 
 {% block content %}
     {% include "partials/page-header.html" %}
 
-    <form action="">
+    <form action="/savepoint" method="POST">
         <!--Para criar uma caixa de formulario-->
         <h1>Cadastro do ponto de coleta</h1>
         <fieldset>
@@ -46,12 +47,12 @@
 
             <div class="field-group">
                 <div class="field">
-                    <label for="addres">Endereço</label>
-                    <input type="text" name="addres" required="required">
+                    <label for="address">Endereço</label>
+                    <input type="text" name="address" required="required">
                 </div>
                 <div class="field">
-                    <label for="addres2">Número/Complemento</label>
-                    <input type="text" name="addres2" required="required">
+                    <label for="address2">Número/Complemento</label>
+                    <input type="text" name="address2" required="required">
                 </div>
             </div>
 
@@ -81,29 +82,29 @@
                 <span>Selecione um ou mais items abaixo</span>
             </legend>
             <div class="items-grid">
-                <li data-id="1">
+                <li data-id="Lâmpadas">
                     <!--Para fazer listas, vai marcar com um .-->
                     <img src="./icones/lampadas.svg" alt="Lâmpadas">
                     <span>Lâmpadas</span>
                     <!--É um elemento em linha-->
                 </li>
-                <li data-id="2">
+                <li data-id="Pilhas e baterias">
                     <img src="./icones/baterias.svg" alt="Pilhas e baterias">
                     <span>Pilhas e baterias</span>
                 </li>
-                <li data-id="3">
+                <li data-id="Papéis e Papelão">
                     <img src="./icones/papeis-papelao.svg" alt="Papéis e Papelão">
                     <span>Papéis e Papelão</span>
                 </li>
-                <li data-id="4">
+                <li data-id="Resíduos Eletrônicos">
                     <img src="./icones/eletronicos.svg" alt="Resíduos Eletrônicos">
                     <span>Resíduos Eletrônicos</span>
                 </li>
-                <li data-id="5">
+                <li data-id="Resíduos Orgânicos">
                     <img src="./icones/organicos.svg" alt="Resíduos Orgânicos">
                     <span>Resíduos Orgânicos</span>
                 </li>
-                <li data-id="6">
+                <li data-id="Óleo de Cozinha">
                     <img src="./icones/oleo.svg" alt="Óleo de Cozinha">
                     <span>Óleo de Cozinha</span>
                 </li>
@@ -116,7 +117,15 @@
         <!--Quando clicar nesse botão irá enviar o formulario-->
 
     </form>
+
+
 {% endblock content %}
+
+{% block modal %}
+        {% if saved %}
+        {% include "partials/point-created.html"%}
+    {% endif%}
+{% endblock modal %}
 
 {% block scripts %}
     <script src="./scripts/create-point.js"></script>
